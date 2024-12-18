@@ -45,11 +45,11 @@ python reconstruction.py --model_path checkpoints/<model_path>
 ```
 
 ## Qualitative Results
-# Appearance Renderings
+### Appearance Renderings
 ![](./media/gif_rgb.gif)
-# Depth Renderings
+### Depth Renderings
 ![](./media/gif_depth.gif)
-# Surface Renderings
+### Surface Renderings
 ![](./media/gifs_surf.gif)
 
 ## Quantitative Results
