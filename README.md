@@ -39,8 +39,9 @@ Each one of them contains images that correspons to different viewpoints and the
 |val|352|251|
 |test|703|251|
 
-
-
+After downloading either our preprocessed srn_cars dataset or any other 
+shapenet category (and turn it into the desired form though prerpocessing.py), 
+please attach the data path into the dataloading section of the corresponding yaml file(**e.g.** SRN_cars.yaml)
 ## Train
 Our codebase is built on [UniSURF](git@github.com:autonomousvision/unisurf.git) structure.
 Following UniSURF implementation we propose a new framework that employs image features 

@@ -40,7 +40,7 @@ model:
         mean_layer: 3 
         nviews: 2
 rendering:
-  type: unisurf
+  type: imagesurf
   n_max_network_queries: 500 
   white_background: True
   radius: 6
@@ -57,9 +57,7 @@ rendering:
     use: True
     nviews: 2
 dataloading:
-  path: /media/panagiotis/1879BE49123DE4EB/datasets/pixelnerf_datasets/SRN_shapenet/prepr_srn_cars_new/cars_
-  # path: /content/prepr_srn_cars_new/cars_
-  #path: /home/panos/datasets/prepr_srn_cars_new/cars_
+  path: 
   classes:
   cache_fields: True
   batchsize: 
@@ -77,11 +75,11 @@ dataloading:
   img_size: [128,128]
   ignore_image_idx: []
 training:
-  type: unisurf
+  type: iamgesurf
   encoder: 
     use: True
     nviews: 2
-  out_dir:  out/DTU/lego/
+  out_dir:  out/srn/cars/
   checkpoints_path: checkpoints/imagesurf/
   epochs: 701
   n_training_points: 128 

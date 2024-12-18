@@ -44,26 +44,16 @@ class Renderer(nn.Module):
                 add_noise=False, eval_=False, mask=None, it=0):
         self.val = it
         
-        if rendering_technique == 'unisurf':
-            out_dict = self.unisurf(
+        if rendering_technique == 'imagesurf':
+            out_dict = self.imagesurf(
                 rays_dir, rays_origin, encoding_dict, 
                 it=it, add_noise=add_noise, eval_=eval_
             )
-        elif rendering_technique == 'phong_renderer':
-            out_dict = self.phong_renderer(
-                pixels, camera_mat, world_mat, scale_mat
-            )
-        elif rendering_technique == 'onsurf_renderer':
-            out_dict = self.onsurf_renderer(
-                pixels, camera_mat, world_mat, 
-                scale_mat, it=it, add_noise=add_noise, 
-                mask_gt=mask, eval_=eval_
-            )
         else:
-            print("Choose unisurf, phong_renderer or onsurf_renderer")
+            raise NotImplementedError
         return out_dict
         
-    def unisurf(self, rays_dir, rays_origin, encoding_dict,
+    def imagesurf(self, rays_dir, rays_origin, encoding_dict,
                 add_noise=False, it=100000, eval_=False):
         # Get configs
         batch_size, n_points, _ = rays_dir.shape
