@@ -36,9 +36,7 @@ Each one of them contains images that correspons to different viewpoints and the
 |subset|instances|views|
 |:-------:|:-------:|:-------:|
 |train|2458|50|
-|:-------:|:-------:|:-------:|
 |val|352|251|
-|:-------:|:-------:|:-------:|
 |test|703|251|
 
 
