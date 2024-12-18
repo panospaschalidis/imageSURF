@@ -6,7 +6,7 @@ Neural Implicit 3D Representations](https://drive.google.com/file/d/1RWD3citDTZe
 
 Specifically we proposed `ImageSURF` as a both surface and volumetric rendering
 pipeline, for object specific `novel view synthesis` and `3D reconstruction`, as an alternative
-for [pixelnerf](https://alexyu.net/pixelnerf/).
+to [pixelnerf](https://alexyu.net/pixelnerf/).
 
 ## Pipeline
 ![](./media/pipeline.png)
