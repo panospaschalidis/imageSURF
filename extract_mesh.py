@@ -96,9 +96,9 @@ try:
     ### exports mesh inside the terminal 
     # mesh_transformed.export(mesh_out_file)
     exported_mesh = trimesh.exchange.ply.export_ply(mesh_transformed,encoding='ascii')
-output_file = open(mesh_out_file, 'w')
-output_file.write(exported_mesh)
-output_file.close()
+    output_file = open(mesh_out_file, 'w')
+    output_file.write(exported_mesh)
+    output_file.close()
 except RuntimeError:
     print("Error generating mesh")
 

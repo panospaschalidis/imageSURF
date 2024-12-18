@@ -1,6 +1,6 @@
 ## ImageSURF
 
-This repository corresponds to my Msc thesis 
+This repository corresponds to my MSc thesis 
 [Reconstructing Surfaces with Appearance using
 Neural Implicit 3D Representations](https://drive.google.com/file/d/1RWD3citDTZecb4INWwU3IhnqYikTQWd-/view?usp=sharing) implementation.
 
@@ -57,14 +57,14 @@ In case you are into other shapenet categories you can easily convert SRN_cars.y
 To evaluate the trained model qualitatively run 
 
 ```
-python reconstruction.py --conf conf/nerf_config.yaml --model_path checkpoints/<model_path> --render_path <render_path> 
+python reconstruction.py SRN_cars.yaml
 ```
 ## Extract Mesh
 For 3D reconstruction you can extract colorless meshes through
 that utilizes [marching cubes](https://github.com/pmneila/PyMCubes)
 implemented by [pmneila](https://github.com/pmneila)
 ```
-python reconstruction.py --model_path checkpoints/<model_path>  
+python extracet_mesh.py SRN_cars.yaml
 ```
 
 ## Qualitative Results

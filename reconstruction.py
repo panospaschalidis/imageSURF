@@ -73,7 +73,6 @@ model_cfg = cfg['model']
 model = mdl.NeuralNetwork(model_cfg)
 # init checkpoints and load
 checkpoint_io = mdl.CheckpointIO(checkpoint_path, project_name=args.project_name)
-#checkpoint_io = mdl.CheckpointIO(checkpoint_path)
 try:
     load_dict = checkpoint_io.load('model.pt')
 except FileExistsError:
@@ -81,13 +80,8 @@ except FileExistsError:
 epoch_it = load_dict.get('epoch_it', -1)
 it = load_dict.get('it', -1)
 model = load_dict.get('model', model)
-#optimizer = load_dict.get('optimizer', optimizer)
-# init renderer
 rendering_cfg = cfg['rendering']
 renderer = mdl.Renderer(model, rendering_cfg, device=device)
-# init training
-#training_cfg = cfg['training']
-#trainer = mdl.Trainer(renderer, optimizer, training_cfg, device=device)
 sviews = torch.tensor(sorted(list(map(int, args.sviews.split()))), dtype=torch.long)
 indices = torch.arange(args.nviews).tolist()
 ind = sorted(sviews)
@@ -100,21 +94,13 @@ z_near, z_far = 0.8, 1.8
 for val, data in enumerate(test_loader):
         print(f"{val} instance {data['instance'][val]}")
 
-        #test_rgb, test_depth, target= trainer.render_visdata(
-         #      data_test, 
-          #     cfg['training']['vis_resolution'], 
-           #    it, None)# out_render_path)
         batch_size, _, *im_shape = data['images'].shape
         rays_dir, rays_origin = ray_tracing(
             im_shape, 
             data['focal'][-1], 
             data['poses'][:,[2],...]
         )
-        #torch.manual_seed(2)
-        #print(index)
-        #bsx(H*W)xnviewsx3->bsx(H*W)x1x3->bsx(H*W)x3
         rays_dir = rays_dir.to(device)
-        #rays_origin = rays_origin.unsqueeze(1).repeat_interleave(np.prod([*im_shape[1:]]),dim=1)
         rays_origin = rays_origin.unsqueeze(1).repeat_interleave(rays_dir.shape[1],dim=1).to(device)
         pdb.set_trace()
         rays_dir = rays_dir.permute(0,2,1,3).flatten(1,2)
@@ -136,9 +122,6 @@ for val, data in enumerate(test_loader):
         renderer.model.encode(encoding_dict)
         with torch.no_grad():
             for val in tqdm(range(len(rays_dir_spl))):
-              #print(val)
-              #print(rays_dir_spl[val].shape)
-              #if val==9:
               pred = renderer(
                       rays_dir_spl[val],
                       rays_ori_spl[val],
@@ -156,18 +139,7 @@ for val, data in enumerate(test_loader):
         rgb_hat = rgb_pred.cpu().numpy()
         depth_hat = depth_pred.cpu().numpy()
 
-        #rgb_hat = (rgb_hat * 255).astype(np.uint8)
-        #img_out[p_loc1[:, 1], p_loc1[:, 0]] = rgb_hat
-        # since p_loc1 correspond to coordinates p_loc1 to
-        # p_loc1[...,1] to x and p_loc[...,0] to y respectively
-        # (inverse effect prompts from not not using indexing ='xy' 
-        # in torch.meshgrid)
-        # coordinates in a cartesian plane and image coordinates in
-        # matrix form are inverted, therefore
-        #rgb_hat = rgb_hat.squeeze().transpose(1,0).reshape(im_shape).transpose(1,2,0)
         norm_depth = (depth_hat-np.min(depth_hat, axis=(1,2))[:,None,None])/(np.max(depth_hat,axis=(1,2))-np.min(depth_hat,axis=(1,2)))[:,None,None]
-        #depth_hat =  depth_hat.squeeze().reshape(im_shape[1:])
-        #target = (0.5*(data['images'].squeeze()[index,...].squeeze().permute(1,2,0))+0.5).numpy()      
         np.savez_compressed(
             os.path.join(
                 os.getcwd(),
