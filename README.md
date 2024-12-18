@@ -33,10 +33,14 @@ python preprocessing.py --shapenet_path <shapenet_path> --data_path <data_path>
 ```
 SRN dataset like our preprocessed one is organized to three subsets train, val and test
 Each one of them contains images that correspons to different viewpoints and their camera parameters. All viewpoints are onganized in a 3D sphere of radius 1.3. In terms of number of views being provided, following table wiil give you a good insight in terms of instances and correponding views.
-|:subset:|:instances:|:views:|
-|:train:|:2458:|:50:|
-|:val:|:352:|:251:|
-|:test:|:703:|:251:|
+|subset|instances|views|
+|:-------:|:-------:|:-------:|
+|train|2458|50|
+|:-------:|:-------:|:-------:|
+|val|352|251|
+|:-------:|:-------:|:-------:|
+|test|703|251|
+
 
 
 ## Train
