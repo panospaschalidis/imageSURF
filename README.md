@@ -43,7 +43,7 @@ After downloading either our preprocessed srn_cars dataset or any other
 shapenet category (and turn it into the desired form though prerpocessing.py), 
 please attach the data path into the dataloading section of the corresponding yaml file(**e.g.** SRN_cars.yaml)
 ## Train
-Our codebase is built on [UniSURF](git@github.com:autonomousvision/unisurf.git) structure.
+Our codebase is built on [UniSURF](https://github.com/autonomousvision/unisurf) structure.
 Following UniSURF implementation we propose a new framework that employs image features 
 in order to render novel views and accurate 3D shapes of objects that belong to the 
 same semantic class. 
