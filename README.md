@@ -5,7 +5,8 @@ This repository corresponds to my MSc thesis
 Neural Implicit 3D Representations](https://drive.google.com/file/d/1RWD3citDTZecb4INWwU3IhnqYikTQWd-/view?usp=sharing) implementation.
 
 Specifically we proposed `ImageSURF` as a both surface and volumetric rendering
-pipeline, for object specific `novel view synthesis` and `3D reconstruction`.
+pipeline, for object specific `novel view synthesis` and `3D reconstruction`, as an alternative
+for [pixelnerf](https://alexyu.net/pixelnerf/).
 
 ## Pipeline
 ![](./media/pipeline.png)
