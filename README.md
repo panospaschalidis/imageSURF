@@ -45,18 +45,12 @@ python reconstruction.py --model_path checkpoints/<model_path>
 ```
 
 ## Qualitative Results
-<video controls width="600">
-  <source src="./media/gif_rgb.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<video controls width="600">
-  <source src="./media/gif_depth.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<video controls width="600">
-  <source src="./media/gifs_surf.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+# Appearance Renderings
+![](./media/gif_rgb.gif)
+# Depth Renderings
+![](./media/gif_depth.gif)
+# Surface Renderings
+![](./media/gifs_surf.gif)
 
 ## Quantitative Results
 ![](./media/metrics.png)
