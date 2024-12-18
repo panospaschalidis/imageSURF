@@ -1,0 +1,102 @@
+
+model:
+  num_layers: 8 
+  hidden_dim: 512 
+  octaves_pe: 6
+  octaves_pe_views: 4
+  skips: [4]
+  geometric_init: True
+  feat_size: 256 
+  rescale: 1.0
+  sig_factor: 10.0
+  encoder:
+    use: True
+    type: resnet18
+    channels: 256 
+    skip_pool: True
+    layers_for_sampling:
+                        - relu
+                        - layer1
+                        - layer2
+    upsampling_mode: bilinear
+    align_corners: True
+    interpolation_mode: bilinear
+    padding_mode: border
+    nviews: 2 
+  pixelnerf:
+    color:
+        inpt: 512   
+        out: 3
+        hidden_dim: 512
+        res_blocks: 2
+    features:
+        inpt: 3   
+        octaves_pe: 6
+        octaves_pe_views: 4
+        normals: False
+        out: 256
+        hidden_dim: 256
+        res_blocks: 3
+        mean_layer: 3 
+        nviews: 2
+rendering:
+  type: unisurf
+  n_max_network_queries: 500 
+  white_background: True
+  radius: 6
+  interval_start: 2.0 
+  interval_end: 0.1
+  interval_decay: 0.000015
+  num_points_in: 64
+  num_points_out: 32
+  ray_marching_steps: 256
+  occ_prob_points: 64
+  sig_factor: 10.0
+  depth_range: [0.1,1.8]
+  encoder:
+    use: True
+    nviews: 2
+dataloading:
+  path: /media/panagiotis/1879BE49123DE4EB/datasets/pixelnerf_datasets/SRN_shapenet/prepr_srn_cars_new/cars_
+  # path: /content/prepr_srn_cars_new/cars_
+  #path: /home/panos/datasets/prepr_srn_cars_new/cars_
+  classes:
+  cache_fields: True
+  batchsize: 
+    train: 4 
+    val: 4
+    test: 1
+  n_workers: 
+    train: 4 
+    val: 4
+    test: 4
+  shuffle:
+    train: True
+    val: True
+    test: True
+  img_size: [128,128]
+  ignore_image_idx: []
+training:
+  type: unisurf
+  encoder: 
+    use: True
+    nviews: 2
+  out_dir:  out/DTU/lego/
+  checkpoints_path: checkpoints/imagesurf/
+  epochs: 701
+  n_training_points: 128 
+  batch_size: 1
+  learning_rate: 0.0001
+  weight_decay: 0.0
+  scheduler_milestones: [4000, 8000]
+  scheduler_gamma: 0.5
+  visualize_every: 1000
+  print_every: 1
+  backup_every: 10000
+  checkpoint_every: 20
+  visualize_skip: 1
+  lambda_l1_rgb: 1.0
+  lambda_normals: 0.005
+  lambda_occ_prob: 0.0
+  vis_resolution: [128, 128]
+

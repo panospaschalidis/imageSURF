@@ -1,0 +1,24 @@
+{
+    "os": "Linux-5.14.0-1051-oem-x86_64-with-glibc2.10",
+    "python": "3.8.6",
+    "heartbeatAt": "2022-09-27T02:47:01.562377",
+    "startedAt": "2022-09-27T02:46:56.850972",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "/home/panagiotis/workstation/repos/nerf_workspace/unisurf_main_pixel/SRN_cars.yaml"
+    ],
+    "state": "running",
+    "program": "train.py",
+    "codePath": "unisurf_main_pixel/train.py",
+    "git": {
+        "remote": "git@github.com:panospaschalidis/nerf_workspace.git",
+        "commit": "ee89d6d6f77e130156d5eed183777fb77d7811d1"
+    },
+    "email": "paschalidispanagiotis.haf@gmail.com",
+    "root": "/home/panagiotis/workstation/repos/nerf_workspace",
+    "host": "panagiotis-XPS-13-9310",
+    "username": "panagiotis",
+    "executable": "/home/panagiotis/anaconda3/envs/py3/bin/python"
+}

@@ -1,0 +1,26 @@
+{
+    "os": "Linux-5.15.0-48-generic-x86_64-with-glibc2.35",
+    "python": "3.10.6",
+    "heartbeatAt": "2022-10-12T13:35:16.687240",
+    "startedAt": "2022-10-12T13:35:16.380298",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "gpu_count": 1,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [
+        "SRN_cars.yaml"
+    ],
+    "state": "running",
+    "program": "/home/panos/workspace/nerf_workspace/unisurf_testing/simplified_feature_srn/train.py",
+    "codePath": "unisurf_testing/simplified_feature_srn/train.py",
+    "git": {
+        "remote": "git@github.com:panospaschalidis/nerf_workspace.git",
+        "commit": "2358112c632bd40f30916213e08612b886d9b69d"
+    },
+    "email": null,
+    "root": "/home/panos/workspace/nerf_workspace",
+    "host": "angelous",
+    "username": "panos",
+    "executable": "/home/panos/anaconda3/envs/py2/bin/python"
+}
