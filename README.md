@@ -71,10 +71,16 @@ python extracet_mesh.py SRN_cars.yaml
 
 ## Qualitative Results
 ### Appearance Renderings
+![](./media/GT_pixelnerf_imagesurf.png)
+
 ![](./media/gif_rgb.gif)
 ### Depth Renderings
+![](./media/pixelnerf_imagesurf.png)
+
 ![](./media/gif_depth.gif)
 ### Surface Renderings
+![](./media/GT_pixelnerf_imagesurf.png)
+
 ![](./media/gifs_surf.gif)
 
 ## Quantitative Results
